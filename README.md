@@ -58,6 +58,7 @@ aws lambda update-function-configuration --cli-input-json fileb://lambda-configu
 ```
 
 > If you used as "AutoGuide" as the skill name, then your Lambda function would be named "ask-custom-autoguide-default"
+
 > Your Lambda function name is listed in .ask/config   
 
 If the update suucceeded, you should see something like this:
