@@ -54,7 +54,7 @@ and add your VehicleTripTable accordingly.
 
 Then issue the following command:
 ```bash
-aws lambda update-function-configuration --cli-input-json fileb://lambda-update-function-configuration.json
+aws lambda update-function-configuration --cli-input-json fileb://lambda-configuration.json
 ```
 
 If the update suucceeded, you should see something like this:
@@ -95,7 +95,6 @@ Go to developer.amazon.com > Alexa Skills Kit and click on your new skill. From 
 launch the skill with "open <skill name>". Or, you can use the ASK CLI to do this with:
 ```bash
 ask simulate --text "open united states quiz game" --locale "en-US"
-
 ```
 
 ## What Your Skill Will Do

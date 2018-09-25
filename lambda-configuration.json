@@ -1,8 +1,9 @@
 {
-    "FunctionName": "ask-custom-python-quiz-default",
 	"Environment": {
 		"Variables": {
-			"TripTable": "myTripTable"
+			"VehicleTripTable": "cvra-demo-VehicleTripTable-U0C6DSG0JW11",
+			"AppCode": "rKLZInnnnJDvNE5ioQIMEg",
+			"AppId": "cF1SE2QqJkuUgBEQHEma"
 		}
 	},
     "Handler": "lambda_function.lambda_handler",
