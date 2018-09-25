@@ -41,26 +41,62 @@ Issue the following command:
 ask deploy
 ```
 
-This will deploy the Alexa skil so that it will be visible in the developer.amazon.com 
+This will deploy the Alexa skill so that it will be visible in the developer.amazon.com 
 console. Deployment will link your Alexa skill with a supporting Lambda function that will 
-be deployed in your AWS account. Check to make sure that both have been created successfully. 
+be deployed in your AWS account. Check to make sure that both have been created successfully. The
+Alexa skill should be visible at https://developer.amazon.com/alexa/console/ask# and the Lambda
+function should be visible in your AWS console.
 
 4. Update the Lambda function<br>
 We need to update the Lambda with your VehicleTripTable and an IAM role. We can accomplish
 this on one command with the AWS CLI. Edit the lambda-update-function-configuration.json file 
 and add your VehicleTripTable accordingly.
 
-// get the lambda skill name
-// need jq
-cat .ask/config | jq .deploy_settings.d
 Then issue the following command:
 ```bash
 aws lambda update-function-configuration --cli-input-json fileb://lambda-update-function-configuration.json
 ```
 
+If the update suucceeded, you should see something like this:
+```json
+{
+    "FunctionName": "ask-py-quiz",
+    "FunctionArn": "arn:aws:lambda:us-east-1:1234567890:function:ask-py-quiz",
+    "Runtime": "python3.6",
+    "Role": "arn:aws:iam::1234567890:role/ask-lambda-python-quiz",
+    "Handler": "lambda_function.lambda_handler",
+    "CodeSize": 2419973,
+    "Description": "Lambda function supporting the reinvent-cvra-bootcamp Alexa skill",
+    "Timeout": 8,
+    "MemorySize": 128,
+    "LastModified": "2018-09-25T20:01:41.924+0000",
+    "CodeSha256": "u0f1Uy6Cp7b8xD0tHEXMabc123psbKR5U=",
+    "Version": "$LATEST",
+    "VpcConfig": {
+        "SubnetIds": [],
+        "SecurityGroupIds": [],
+        "VpcId": ""
+    },
+    "Environment": {
+        "Variables": {
+            "TripTable": "myTripTable"
+        }
+    },
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "c5c88456-f78d-4477-95ed-9666761891cd"
+}
+
+```
+
 5. Test the Alexa skill<br>
 Go to developer.amazon.com > Alexa Skills Kit and click on your new skill. From the Test tab,
-launch the skill with "open <skill name>"
+launch the skill with "open <skill name>". Or, you can use the ASK CLI to do this with:
+```bash
+ask simulate --text "open united states quiz game" --locale "en-US"
+
+```
 
 ## What Your Skill Will Do
 The Skill allows users to request a quiz about the 50 States of the USA. They will 

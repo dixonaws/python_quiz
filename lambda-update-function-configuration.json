@@ -1,5 +1,5 @@
 {
-    "FunctionName": "ask-py-quiz",
+    "FunctionName": "ask-custom-python-quiz-default",
 	"Environment": {
 		"Variables": {
 			"TripTable": "myTripTable"
