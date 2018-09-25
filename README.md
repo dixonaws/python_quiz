@@ -19,14 +19,14 @@ Build An Alexa Quiz Skill in Python using ASK Python SDK
 *  A basic understanding of Python.
 
 ## Instructions
-1. Use the ASK CLI to create a new Alexa skill based on this repository
+######1. Use the ASK CLI to create a new Alexa skill based on this repository
 ```
 ask new --template --skill-name "autoguide" --url https://www.dixonaws.com/alexaskills.json
 ```
 
 This will create a new directory called "autoguide"
  
-2. Install the dependencies in the lambda/py directory
+######2. Install the dependencies in the lambda/py directory
 Change to the "autoguide" directory and issue the following command:
 ```bash
 pip install -r lambda/py/requirements.txt -t lambda/py
@@ -35,7 +35,7 @@ pip install -r lambda/py/requirements.txt -t lambda/py
 This command will install all of the dependencies that the Lambda function will need to execute 
 when invoked by the Alexa skill (e.g., the ask SDK, Python requests library, etc.)
 
-3. Deploy the skill
+######3. Deploy the skill
 Issue the following command:
 ```bash
 ask deploy
@@ -45,7 +45,7 @@ This will deploy the Alexa skil so that it will be visible in the developer.amaz
 console. Deployment will link your Alexa skill with a supporting Lambda function that will 
 be deployed in your AWS account. Check to make sure that both have been created successfully. 
 
-3. Update the Lambda function
+######4. Update the Lambda function
 We need to update the Lambda with your VehicleTripTable and an IAM role. We can accomplish
 this on one command with the AWS CLI. Edit the lambda-update-function-configuration.json file 
 and add your VehicleTripTable accordingly.
@@ -58,7 +58,7 @@ Then issue the following command:
 aws lambda update-function-configuration --cli-input-json fileb://lambda-update-function-configuration.json
 ```
 
-4. Test the Alexa skill
+######5. Test the Alexa skill
 Go to developer.amazon.com > Alexa Skills Kit and click on your new skill. From the Test tab,
 launch the skill with "open <skill name>"
 
