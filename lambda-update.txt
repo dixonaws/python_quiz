@@ -1,0 +1,4 @@
+#install the dependencices in the lambda/py directory
+
+#update the function code to use python and an environment variable for the TripTable
+aws lambda update-function-configuration --cli-input-json fileb://lambda-update-function-configuration.json
