@@ -1,0 +1,28 @@
+{
+  "skillManifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Sample Short Description",
+          "examplePhrases": [
+            "Alexa open python quiz"
+          ],
+          "name": "python quiz",
+          "description": "Sample Full Description"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/py"
+        }
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}
