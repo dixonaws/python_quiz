@@ -54,8 +54,11 @@ and add your VehicleTripTable accordingly.
 
 Then issue the following command:
 ```bash
-aws lambda update-function-configuration --cli-input-json fileb://lambda-configuration.json
+aws lambda update-function-configuration --cli-input-json fileb://lambda-configuration.json --function-name <your_lambda_function>
 ```
+
+> If you used as "AutoGuide" as the skill name, then your Lambda function would be named "ask-custom-autoguide-default"
+> Your Lambda function name is listed in .ask/config   
 
 If the update suucceeded, you should see something like this:
 ```json
