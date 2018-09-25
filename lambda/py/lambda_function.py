@@ -17,6 +17,7 @@ import sys
 from datetime import date
 from datetime import time
 from datetime import datetime
+import os
 
 def sortFunc(e):
 	return e['timestamp']['S']
@@ -73,15 +74,11 @@ def friendly_date(str_a_date):
 # --------------- Functions that control the skill's behavior ------------------
 
 def get_welcome_response():
-	""" If we wanted to initialize the session to have some attributes we could
-	add those here
-	"""
+	strApp_code = os.environ['AppCode']
+	strApp_id = os.environ['AppId']
 
 	session_attributes = {}
 	card_title = "Welcome"
-
-	strApp_id = 'cF1SE2QqJkuUgBEQHEma'
-	strApp_code = 'rKLZInnnnJDvNE5ioQIMEg'
 
 	# If the user either does not reply to the welcome message or says something
 	# that is not understood, they will be prompted again with this text.
@@ -92,7 +89,7 @@ def get_welcome_response():
 	listTrips = get_recent_trips()
 	intNumberOfTrips = len(listTrips)
 
-	speech_output = "<speak>Welcome to CarGuru. I found a total of " + str(
+	speech_output = "<speak>Welcome to AutoGuide. I found a total of " + str(
 		intNumberOfTrips) + " trips in your profile. The three most recent were: "
 
 	intTripNumber = 1
@@ -140,8 +137,8 @@ def get_welcome_response():
 def getLocationInfo(strProx, strApp_id, strApp_code):
 	# this method takes the following parameters:
 	# strProx = '41.8842,-87.6388,250'
-	# strApp_id = 'cF1SE2QqJkuUgBEQHEma'
-	# strApp_code = 'rKLZInnnnJDvNE5ioQIMEg'
+	# strApp_id = 'abc'
+	# strApp_code = 'def'
 
 	strUrl = 'https://reverse.geocoder.api.here.com/6.2/reversegeocode.json'
 	dictHeaders = {'Content-Type': '*'}
@@ -169,13 +166,13 @@ def getLocationInfo(strProx, strApp_id, strApp_code):
 
 
 def get_recent_trips():
-	strVehicleTripTable = 'cvra-demo-VehicleTripTable-U0C6DSG0JW11'
-	strRegion = 'us-east-1'
+	strVehicleTripTable = os.environ['VehicleTripTable']
+	strRegion = os.environ['Region']
 
 	# reverse geocoding with HERE maps
 	# https://developer.here.com/documentation/geocoder/topics/example-reverse-geocoding.html
-	strApp_code = 'rKLZInnnnJDvNE5ioQIMEg'
-	strApp_id = 'cF1SE2QqJkuUgBEQHEma'
+	strApp_code = os.environ['AppCode']
+	strApp_id = os.environ['AppId']
 
 	dynamoDbClient = boto3.client('dynamodb', region_name=strRegion)
 

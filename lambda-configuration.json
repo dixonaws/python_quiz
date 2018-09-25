@@ -3,10 +3,12 @@
 		"Variables": {
 			"VehicleTripTable": "cvra-demo-VehicleTripTable-U0C6DSG0JW11",
 			"AppCode": "rKLZInnnnJDvNE5ioQIMEg",
-			"AppId": "cF1SE2QqJkuUgBEQHEma"
+			"AppId": "cF1SE2QqJkuUgBEQHEma",
+			"Region": "us-east-1"
 		}
 	},
     "Handler": "lambda_function.lambda_handler",
-    "Description": "Lambda function supporting the US Quiz Game Alexa skill",
-    "Runtime": "python3.6"
+    "Description": "Lambda function supporting the AutoGuide Alexa skill",
+    "Runtime": "python3.6",
+	"Role": "arn:aws:iam::477157386854:role/ask-lambda-AutoGuide"
 }
