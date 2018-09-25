@@ -1,0 +1,9 @@
+{
+    "AutoGuide": {
+        "gitUrl": "https://github.com/dixonaws/AutoGuide.git"
+    },
+
+    "pythonquiz": {
+        "gitUrl": "https://github.com/dixonaws/python_quiz.git"
+    }
+}

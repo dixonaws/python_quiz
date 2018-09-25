@@ -20,22 +20,32 @@ Build An Alexa Quiz Skill in Python using ASK Python SDK
 
 ## Instructions
 1. Use the ASK CLI to create a new Alexa skill based on this repository
-ask new --template --skill-name "autoguide" --url https://www.dixonaws.com/template.json
+ask new --template --skill-name "autoguide" --url https://www.dixonaws.com/alexaskills.json
  
-2. Install the dependencices in the lambda/py directory
+2. Install the dependencies in the lambda/py directory
 Enter the repo directory, e.g. ```autoguide/lambda/py```
 Install dependencies from requirements.txt with ```pip install -r requirements.txt -t .```
 This will install all of the dependencies that the Lambda function will need to execute 
 when invoked by the Alexa skill 
 
-3. Update the function code to use python and an environment variable for the TripTable
-aws lambda update-function-configuration --cli-input-json fileb://lambda-update-function-configuration.json
 
-#get the lambda skill name
-#need jq
-cat .ask/config | jq .deploy_settings.default.merge.manifest.apis.custom.endpoint.uri
+3. Update the Lambda function
+/// to use Python and an environment variable for the TripTable
+// Add an IAM role that can access your VehicleTripTable
+// Edit lambda-update-function-configuration.json to do this in one step
+
+// get the lambda skill name
+// need jq
+cat .ask/config | jq .deploy_settings.d
+
+```bash
+aws lambda update-function-configuration --cli-input-json fileb://lambda-update-function-configuration.json
+```
 
 need to also include json for IAM role which can access the dynamoTripTable
+
+4. Deploy the skill
+Run ```ask deploy``` from the directory
 
 
 ## What Your Skill Will Do
