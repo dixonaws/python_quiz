@@ -14,9 +14,29 @@ Build An Alexa Quiz Skill in Python using ASK Python SDK
 ## What You Will Need
 *  [Amazon Developer Portal Account](http://developer.amazon.com)
 *  [Amazon Web Services Account](http://aws.amazon.com/)
-*  The sample code on [GitHub](https://github.com/alexa/skill-sample-python-quiz-game).
+*  The sample code on [GitHub](https://github.com/dixonaws/autoguide).
 *  [ASK Python SDK](https://github.com/alexa/alexa-skills-kit-sdk-for-python)
 *  A basic understanding of Python.
+
+## Instructions
+1. Use the ASK CLI to create a new Alexa skill based on this repository
+ask new --template --skill-name "autoguide" --url https://www.dixonaws.com/template.json
+ 
+2. Install the dependencices in the lambda/py directory
+Enter the repo directory, e.g. ```autoguide/lambda/py```
+Install dependencies from requirements.txt with ```pip install -r requirements.txt -t .```
+This will install all of the dependencies that the Lambda function will need to execute 
+when invoked by the Alexa skill 
+
+3. Update the function code to use python and an environment variable for the TripTable
+aws lambda update-function-configuration --cli-input-json fileb://lambda-update-function-configuration.json
+
+#get the lambda skill name
+#need jq
+cat .ask/config | jq .deploy_settings.default.merge.manifest.apis.custom.endpoint.uri
+
+need to also include json for IAM role which can access the dynamoTripTable
+
 
 ## What Your Skill Will Do
 The Skill allows users to request a quiz about the 50 States of the USA. They will receive 10 random questions or they can ask for specific information, such as, "tell me about New York".
@@ -24,9 +44,3 @@ This simple "quiz" skill will teach you how the different pieces of the Alexa Sk
 
 We use will use the Skill builder UI to build the Skill although the quiz itself does not employ the new "Dialog-Delegate interface" model.
 
-### Concepts
-
-This simple sample shows how to use render template directives in the alexa 
-skill built using ASK Python SDK.
-
-[![Get Started](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png)](/instructions/1-voice-user-interface.md)
