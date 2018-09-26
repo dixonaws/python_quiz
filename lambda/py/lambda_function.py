@@ -294,10 +294,8 @@ def on_intent(intent_request, session):
 	intent_name = intent_request['intent']['name']
 
 	# Dispatch to your skill's intent handlers
-	if intent_name == "MyColorIsIntent":
-		return set_color_in_session(intent, session)
-	elif intent_name == "WhatsMyColorIntent":
-		return get_color_from_session(intent, session)
+	if intent_name == "LaunchIntent":
+		return get_welcome_response()
 	elif intent_name == "AMAZON.HelpIntent":
 		return get_welcome_response()
 	elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
