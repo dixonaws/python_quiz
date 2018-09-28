@@ -1,9 +1,5 @@
 {
-    "AutoGuide": {
-        "gitUrl": "https://github.com/dixonaws/AutoGuide.git"
-    },
-
-    "pythonquiz": {
-        "gitUrl": "https://github.com/dixonaws/python_quiz.git"
+    "Autoguide": {
+        "gitUrl": "https://github.com/dixonaws/reinvent_cvra_bootcamp_alexa.git"
     }
 }
