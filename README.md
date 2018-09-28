@@ -62,10 +62,10 @@ aws lambda update-function-configuration --cli-input-json fileb://lambda-configu
 If the update suucceeded, you should see something like this:
 ```json
 {
-    "FunctionName": "ask-py-quiz",
-    "FunctionArn": "arn:aws:lambda:us-east-1:1234567890:function:ask-py-quiz",
+    "FunctionName": "autoguide",
+    "FunctionArn": "arn:aws:lambda:us-east-1:1234567890:function:ask-py-autoguide",
     "Runtime": "python3.6",
-    "Role": "arn:aws:iam::1234567890:role/ask-lambda-python-quiz",
+    "Role": "arn:aws:iam::1234567890:role/ask-lambda-python-autoguide",
     "Handler": "lambda_function.lambda_handler",
     "CodeSize": 2419973,
     "Description": "Lambda function supporting the reinvent-cvra-bootcamp Alexa skill",
@@ -96,14 +96,13 @@ If the update suucceeded, you should see something like this:
 Go to developer.amazon.com > Alexa Skills Kit and click on your new skill. From the Test tab,
 launch the skill with "open <skill name>". Or, you can use the ASK CLI to do this with:
 ```bash
-ask simulate --text "open united states quiz game" --locale "en-US"
+ask simulate --text "open autoguide" --locale "en-US"
 ```
 
 ## What Your Skill Will Do
-The Skill allows users to request a quiz about the 50 States of the USA. They will 
-receive 10 random questions or they can ask for specific information, such as, "tell me 
-about New York." This simple "quiz" skill will teach you how the different pieces of the 
-Alexa Skill development process fit together. We use will use the Skill builder UI to 
-build the Skill although the quiz itself does not employ the new "Dialog-Delegate 
-interface" model.
+The Skill allows users to ask Alexa about their connected vehicle, either while on a trip 
+or from the desk (even while the vehicle is off). You can ask such things as:
+- "Alexa, ask Autoguide about my recent trips"
+- "Alexa, ask Autoguide about my current trip"
+- "Alexa, ask Autogiode if my vehicle needs maintenance"
 
