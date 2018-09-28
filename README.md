@@ -21,7 +21,7 @@ Build An Alexa Quiz Skill in Python using ASK Python SDK
 ## Instructions
 1. Use the ASK CLI to create a new Alexa skill based on this repository<br>
 ```
-ask new --template --skill-name "autoguide" --url https://www.dixonaws.com/alexaskills.json
+ask new --template --skill-name "autoguide" --url https://raw.githubusercontent.com/dixonaws/reinvent_cvra_bootcamp_alexaskill/master/alexaskills.json
 ```
 
 This will create a new directory called "autoguide"
